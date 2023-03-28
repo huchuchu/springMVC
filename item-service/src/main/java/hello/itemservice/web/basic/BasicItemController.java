@@ -37,14 +37,49 @@ public class BasicItemController {
     public String addForm(){
         return "basic/addForm";
     }
-
 //    @PostMapping("/add")
-    public String addItemV4(@ModelAttribute Item item){
+    public String addItemV1(@RequestParam String itemName,
+                       @RequestParam int price,
+                       @RequestParam Integer quantity,
+                       Model model){
+
+        Item item = new Item();
+        item.setItemName(itemName);
+        item.setPrice(price);
+        item.setQuantity(quantity);
+
         itemRepository.save(item);
+
+        model.addAttribute("item" ,item);
         return "basic/item";
     }
 
 //    @PostMapping("/add")
+    public String addItemV2(@ModelAttribute("item") Item item){
+        itemRepository.save(item);
+//        @ModelAttribute : 폼에서 보낸 객체 바인딩과 Model.addAttribute 기능. 두가지 기능을 한다
+//        model.addAttribute("item" ,item); 자동추가되기때문에 생략가능
+        return "basic/item";
+    }
+
+//    @PostMapping("/add")
+    public String addItemV3(@ModelAttribute Item item){
+        itemRepository.save(item);
+//        @ModelAttribute("name") 생략가능. 생략해도  model.addAttribute 기능을 한다.
+//        addAttribute name은 파라미터로 받은 객체 이름을 첫글자만 소문자로 바꿔서 넣어준다 Item -> item
+//        @ModelAttribute : 폼에서 보낸 객체 바인딩과 Model.addAttribute 기능. 두가지 기능을 한다
+//        model.addAttribute("item" ,item); 자동추가되기때문에 생략가능
+        return "basic/item";
+    }
+
+//    @PostMapping("/add")
+    public String addItemV4(Item item){
+        itemRepository.save(item);
+//        @ModelAttribute 생략가능. 생략해도 객체바인딩,  model.addAttribute 기능을 한다.
+        return "basic/item";
+    }
+
+    //    @PostMapping("/add")
     public String addItemV5(@ModelAttribute Item item){
         log.info("item = {}",item);
         itemRepository.save(item);
