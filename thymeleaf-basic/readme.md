@@ -7,6 +7,11 @@
 #### 유틸리티 객체 : https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#expression-utility-objects
 #### 유틸리티 객체 예시 : https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#appendix-b-expression-utility-objects
 
+### 타임리프 선언
+```agsl
+<html xmlns:th="http://www.thymeleaf.org">
+```
+
 ### 📌텍스트 - text, utext : [text-basic.html](https://github.com/huchuchu/springMVC/blob/master/thymeleaf-basic/src/main/resources/templates/basic/text-basic.html) , [text-unescaped.html](https://github.com/huchuchu/springMVC/blob/master/thymeleaf-basic/src/main/resources/templates/basic/text-unescaped.html)
 ### 📌변수 - springEl : [variable.html](https://github.com/huchuchu/springMVC/blob/master/thymeleaf-basic/src/main/resources/templates/basic/variable.html)
 ### 📌기본 객체들 : [basic-object.html](https://github.com/huchuchu/springMVC/blob/master/thymeleaf-basic/src/main/resources/templates/basic/basic-object.html)
